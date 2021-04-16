@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "esnext",
+        "sourceMap": true,
+        "outDir": "./com/jellybeanci/design-patterns/js",
+        "rootDir": "./com/jellybeanci/design-patterns/ts",
+        "moduleResolution": "node",
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
