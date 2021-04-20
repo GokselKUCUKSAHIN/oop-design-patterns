@@ -8,14 +8,14 @@ export class Vekilbasbakan implements Basbakan {
   }
 
   dertDinle(dert: string): void {
-    console.log("Vakil: Derdinizi dinliyorum...")
+    console.log("Vakil: Derdinizi dinliyorum...");
     if (this.ayikla(dert)) {
       this.ilet(dert);
     }
   }
 
   isBul(dert: string): void {
-    console.log("Vekil: Isteğinizi dinliyorum...")
+    console.log("Vekil: Isteğinizi dinliyorum...");
   }
 
   private ayikla(dert: string): boolean {
