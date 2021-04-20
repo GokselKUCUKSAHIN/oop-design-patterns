@@ -6,6 +6,7 @@
         "outDir": "./com/jellybeanci/design-patterns/js",
         "rootDir": "./com/jellybeanci/design-patterns/ts",
         "moduleResolution": "node",
+        "watch": true
     },
     "exclude": [
         "node_modules"
