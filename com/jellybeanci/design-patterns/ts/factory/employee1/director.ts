@@ -37,7 +37,6 @@ export class Director extends Manager {
   }
 
   public toString(): string {
-    return `Director [bonus=${this.bonus}, departmentManaged=${this.departmentManaged}, id=${this.id},
-     name=${this.name}, year=${this.year}, department=${this.department}, salary=${this.salary}]`;
+    return `Director [bonus=${this.bonus}, departmentManaged=${this.departmentManaged}, id=${this.id}, name=${this.name}, year=${this.year}, department=${this.department}, salary=${this.salary}]`;
   }
 }

@@ -32,7 +32,6 @@ export class Manager extends Employee {
   }
 
   public toString(): string {
-    return `Manager [departmentManaged=${this.departmentManaged}, id=${this.id}, name=${this.name}, 
-    year=${this.year}, department=${this.department}, salary=${this.salary}]`;
+    return `Manager [departmentManaged=${this.departmentManaged}, id=${this.id}, name=${this.name}, year=${this.year}, department=${this.department}, salary=${this.salary}]`;
   }
 }

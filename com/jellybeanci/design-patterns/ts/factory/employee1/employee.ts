@@ -12,6 +12,7 @@ export class Employee {
     this.name = name;
     this.year = year;
     this.department = department;
+    this.calculateSalary();
   }
 
   public work(): void {
@@ -53,7 +54,6 @@ export class Employee {
   }
 
   public toString(): string {
-    return `Employee [id=${this.id}, name=${this.name}, year=${this.year},
-     department=${this.department}, salary=${this.salary}]`;
+    return `Employee [id=${this.id}, name=${this.name}, year=${this.year}, department=${this.department}, salary=${this.salary}]`;
   }
 }
