@@ -1,6 +1,6 @@
 import {LazyLoadSingleton} from "../lazy-load/lazyload-singleton";
 
-const delay = async (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const delay = async (ms) => new Promise(_ => setTimeout(_, ms));
 
 const timeout = async () => {
   await delay(1000);
