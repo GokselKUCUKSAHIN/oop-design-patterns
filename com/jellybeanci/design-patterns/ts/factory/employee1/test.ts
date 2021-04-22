@@ -29,7 +29,10 @@ class Test {
     const employees = hr.getEmployees();
     employees.forEach(employee => {
       po.paySalary(employee);
-    })
+    });
+    employees.forEach(employees => {
+      employees.printInfo();
+    });
   };
 }
 Test.main();

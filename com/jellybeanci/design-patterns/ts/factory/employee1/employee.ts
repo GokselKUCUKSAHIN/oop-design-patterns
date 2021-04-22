@@ -26,11 +26,11 @@ export class Employee {
 
   public printInfo(): void {
     console.log(`
-      \nEmployee Info\n
-      Id: ${this.id}\n
-      Name: ${this.name}\n
-      Year: ${this.year}\n
-      Department: ${this.department}`);
+Employee Info
+Id: ${this.id}
+Name: ${this.name}
+Year: ${this.year}
+Department: ${this.department}`);
   }
 
   public getId(): number {
