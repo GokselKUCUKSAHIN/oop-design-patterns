@@ -1,5 +1,5 @@
 import {Factory} from "./factory";
-import {Director} from "./director";
+import {Director} from "../employee1/director";
 import {EmployeeRandomizer} from "../employee-randomizer";
 
 export class DirectorFactory implements Factory {

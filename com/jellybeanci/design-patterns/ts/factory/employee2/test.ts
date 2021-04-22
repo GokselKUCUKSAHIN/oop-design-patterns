@@ -1,5 +1,5 @@
-import {HR} from "./hr";
-import {PayrollOffice} from "./payroll-office";
+import {HR} from "../employee1/hr";
+import {PayrollOffice} from "../employee1/payroll-office";
 import {EmployeeFactory} from "./employee-factory";
 import {ManagerFactory} from "./manager-factory";
 import {DirectorFactory} from "./director-factory";
@@ -35,4 +35,5 @@ class Test {
     });
   };
 }
+
 Test.main();
