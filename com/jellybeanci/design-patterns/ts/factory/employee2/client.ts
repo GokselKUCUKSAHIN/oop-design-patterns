@@ -4,7 +4,7 @@ import {EmployeeFactory} from "./employee-factory";
 import {ManagerFactory} from "./manager-factory";
 import {DirectorFactory} from "./director-factory";
 
-class Test {
+class Client {
   public static main = () => {
     const hr = new HR();
     const po = new PayrollOffice();
@@ -36,4 +36,4 @@ class Test {
   };
 }
 
-Test.main();
+Client.main();
