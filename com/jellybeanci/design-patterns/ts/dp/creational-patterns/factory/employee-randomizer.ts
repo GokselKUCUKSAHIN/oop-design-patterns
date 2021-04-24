@@ -10,21 +10,21 @@ export class EmployeeRandomizer {
     return ~~(Math.random() * (max - min) + min);
   }
 
-  public static createId(): number {
+  static createId(): number {
     return this.getRandomInt(0, 100_000);
   }
 
-  public static createName(): string {
+  static createName(): string {
     const randomIndex = this.getRandomInt(0, this.firstNames.length);
     return this.firstNames[randomIndex];
   }
 
-  public static createDepartment(): string {
+  static createDepartment(): string {
     const randomIndex = this.getRandomInt(0, this.departments.length);
     return this.departments[randomIndex];
   }
 
-  public static createYear(): number {
+  static createYear(): number {
     return this.getRandomInt(1, 20);
   }
 }
