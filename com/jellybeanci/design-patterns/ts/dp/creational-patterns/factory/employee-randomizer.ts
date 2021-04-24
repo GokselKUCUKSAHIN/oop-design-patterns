@@ -1,7 +1,7 @@
 export class EmployeeRandomizer {
   private static firstNames = ["Ali", "Ayse", "Bahar", "Bekir", "Bulent", "Can", "Cem", "Demet", "Elif",
     "Eylem", "Faruk", "Fatma", "Ganime", "Gulsum", "Haydar", "Halil", "Ismail", "Jale", "Kemal", "Leman",
-    "Mehmet", "Mihrimah", "Murat", "Mustafa", "Nedim", "Nilufer", "Selim", "Selman", "Sevda", "S¸leyman",
+    "Mehmet", "Mihrimah", "Murat", "Mustafa", "Nedim", "Nilufer", "Selim", "Selman", "Sevda", "Süleyman",
     "Tarik", "Teoman", "Turgut", "Yeliz", "Zuhal"];
 
   private static departments = ["Production", "Sales", "Marketing", "Engineering"];
