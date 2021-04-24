@@ -3,7 +3,7 @@ import {Component} from "./component";
 
 export class Client {
   constructor(factory: GUIFactory) {
-    let component: Component = factory.create();
+    const component: Component = factory.create();
     component.paint();
   }
 }
