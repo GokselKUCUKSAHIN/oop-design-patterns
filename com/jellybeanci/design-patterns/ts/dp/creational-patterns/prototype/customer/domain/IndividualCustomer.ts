@@ -13,7 +13,6 @@ export class IndividualCustomer extends Customer {
     this._dob = dob;
   }
 
-
   get firstName(): string {
     return this._firstName;
   }
@@ -50,5 +49,4 @@ export class IndividualCustomer extends Customer {
     customer.validated = true;
     return customer;
   }
-
 }
