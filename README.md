@@ -7,7 +7,7 @@
 - [x] Factory
 - [x] Abstract Factory
 - [x] Prototype
-- [ ] Builder
+- [x] Builder
 
 ## Structural Patterns
 - [ ] Flyweight
