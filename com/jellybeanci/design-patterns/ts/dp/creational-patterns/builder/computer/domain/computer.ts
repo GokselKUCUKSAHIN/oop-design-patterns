@@ -53,9 +53,9 @@ export class Computer {
     this._ram.startServices();
     this._hdd.start();
     this._graphicCard.start();
-    this._display && this._display.start();
-    this._keyboard && this._keyboard.start();
-    this._mouse && this._mouse.start();
+    !! this._display && this._display.start();
+    !! this._keyboard && this._keyboard.start();
+    !! this._mouse && this._mouse.start();
     console.log(`Computer ${this._name} has started.!`);
   }
 
