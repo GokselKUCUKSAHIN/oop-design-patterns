@@ -52,7 +52,7 @@ export class Computer {
     this._ram.loadDrivers();
     this._ram.startServices();
     this._hdd.start();
-    this._graphicCard.start();
+    !! this._graphicCard && this._graphicCard.start();
     !!this._display && this._display.start();
     !!this._keyboard && this._keyboard.start();
     !!this._mouse && this._mouse.start();
