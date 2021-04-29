@@ -17,7 +17,7 @@ export class ComputerBuilder implements ComputerBuilderInterface {
     this.buildHDD();
     this.buildGraphicCard();
     this.buildDisplay();
-    return undefined;
+    return this.computer;
   }
 
   buildCPU(): void {
