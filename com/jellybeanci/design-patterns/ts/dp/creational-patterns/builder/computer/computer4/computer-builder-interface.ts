@@ -1,4 +1,4 @@
-import {Computer} from "../domain/computer";
+import {Computer} from "./computer";
 
 export interface ComputerBuilderInterface {
   buildRAM(): ComputerBuilderInterface;
