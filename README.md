@@ -10,7 +10,7 @@
 - [x] Builder
 
 ## Structural Patterns
-- [ ] Flyweight
+- [x] Flyweight
 - [ ] Adapter
 - [ ] Composite
 - [ ] Facade
