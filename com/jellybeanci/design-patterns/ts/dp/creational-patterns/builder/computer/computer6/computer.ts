@@ -5,9 +5,15 @@ import {GraphiscCard} from "../domain/graphisc-card";
 import {Display} from "../domain/display";
 import {Keyboard} from "../domain/keyboard";
 import {Mouse} from "../domain/mouse";
-import {LazyComputerBuilderInterface} from "./lazy-computer-builder-interface";
+import {BaseComputerBuilderInterface} from "./base-computer-builder-interface";
+import {ComputerDisplayBuilderInterface} from "./computer-display-builder-interface";
+import {AccessoryBuilderInterface} from "./accessory-builder-interface";
 
 export class Computer {
+  private static baseComputerBuilder: BaseComputerBuilderInterface;
+  private computerDisplayBuilder: ComputerDisplayBuilderInterface;
+  private accessoryBuilder: AccessoryBuilderInterface;
+
   private _name: string;
   private _cpu: CPU;
   private _ram: RAM;
@@ -91,21 +97,27 @@ export class Computer {
     return this._mouse;
   }
 
-  static getBuilder(name: string) {
-    return new Computer.ComputerBuilder(name);
+  static getBaseBuilder(name: string) {
+    Computer.baseComputerBuilder = new Computer.BaseComputerBuilder(name);
+    return Computer.baseComputerBuilder;
   }
 
-  private static ComputerBuilder = class implements LazyComputerBuilderInterface {
+  getDisplayBuilder() {
+    this.computerDisplayBuilder = new Computer.ComputerDisplayBuilder(Computer.baseComputerBuilder);
+    return this.computerDisplayBuilder;
+  }
 
+  getAccessoryBuilder() {
+    this.accessoryBuilder = new Computer.AccessoryBuilder(this.computerDisplayBuilder);
+    return this.accessoryBuilder;
+  }
+
+  private static BaseComputerBuilder = class implements BaseComputerBuilderInterface {
     private name: string;
 
-    private hasCPU: boolean;
     private hasRAM: boolean;
+    private hasCPU: boolean;
     private hasHDD: boolean;
-    private hasGC: boolean;
-    private hasDisplay: boolean;
-    private hasKeyboard: boolean;
-    private hasMouse: boolean;
 
     private computer: Computer;
 
@@ -113,53 +125,93 @@ export class Computer {
       this.name = name;
     }
 
-    buildRAM(): LazyComputerBuilderInterface {
-      this.hasRAM = true
+    buildRAM(): BaseComputerBuilderInterface {
+      this.hasRAM = true;
       return this;
     }
 
-    buildCPU(): LazyComputerBuilderInterface {
+    buildCPU(): BaseComputerBuilderInterface {
       this.hasCPU = true;
       return this;
     }
 
-    buildDisplay(): LazyComputerBuilderInterface {
-      this.hasDisplay = true;
-      return this;
-    }
-
-    buildGraphicCard(): LazyComputerBuilderInterface {
-      this.hasGC = true;
-      return this;
-    }
-
-    buildHDD(): LazyComputerBuilderInterface {
+    buildHDD(): BaseComputerBuilderInterface {
       this.hasHDD = true;
       return this;
     }
 
-    buildKeyboard(): LazyComputerBuilderInterface {
-      this.hasKeyboard = true;
-      return this;
-    }
-
-    buildMouse(): LazyComputerBuilderInterface {
-      this.hasMouse = true;
-      return this;
-    }
-
-    build(): Computer {
+    buildBaseComputer(): Computer {
       this.computer = new Computer();
       this.computer._name = this.name;
 
       !!this.hasRAM && (this.computer._ram = new RAM());
       !!this.hasCPU && (this.computer._cpu = new CPU());
       !!this.hasHDD && (this.computer._hdd = new HDD());
-      !!this.hasDisplay && (this.computer._display = new Display());
-      !!this.hasGC && (this.computer._graphicCard = new GraphiscCard());
-      !!this.hasKeyboard && (this.computer._keyboard = new Keyboard());
-      !!this.hasMouse && (this.computer._mouse = new Mouse());
 
+      return this.computer;
+    }
+
+    getComputer(): Computer {
+      return this.computer;
+    }
+  }
+
+  private static ComputerDisplayBuilder = class implements ComputerDisplayBuilderInterface {
+
+    private hasGC: boolean;
+    private hasDisplay: boolean;
+
+    private computer: Computer;
+
+    constructor(baseComputerBuilder: BaseComputerBuilderInterface) {
+      this.computer = baseComputerBuilder.getComputer();
+    }
+
+    buildGraphicCard(): ComputerDisplayBuilderInterface {
+      this.hasGC = true;
+      return this;
+    }
+
+    buildDisplay(): ComputerDisplayBuilderInterface {
+      this.hasDisplay = true;
+      return this;
+    }
+
+    buildComputerDisplay(): Computer {
+      !!this.hasGC && (this.computer._graphicCard = new GraphiscCard());
+      !!this.hasDisplay && (this.computer._display = new Display());
+      return this.computer;
+    }
+
+    getComputer(): Computer {
+      return this.computer;
+    }
+  }
+
+  private static AccessoryBuilder = class implements AccessoryBuilderInterface {
+
+    private hasMouse: boolean;
+    private hasKeyboard: boolean;
+
+    private computer: Computer;
+
+    constructor(computerDisplayBuilder: ComputerDisplayBuilderInterface) {
+      this.computer = computerDisplayBuilder.getComputer();
+    }
+
+    buildMouse(): AccessoryBuilderInterface {
+      this.hasMouse = true;
+      return this;
+    }
+
+    buildKeyboard(): AccessoryBuilderInterface {
+      this.hasKeyboard = true;
+      return this;
+    }
+
+    buildAccessories(): Computer {
+      !!this.hasMouse && (this.computer._mouse = new Mouse());
+      !!this.hasKeyboard && (this.computer._keyboard = new Keyboard());
       return this.computer;
     }
   }
