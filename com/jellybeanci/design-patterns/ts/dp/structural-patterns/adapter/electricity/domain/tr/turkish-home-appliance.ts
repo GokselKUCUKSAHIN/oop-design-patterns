@@ -1,7 +1,7 @@
 import {HomeAppliance} from "./home-appliance";
 
 export class TurkishHomeAppliance extends HomeAppliance {
-  protected name: string;
+  protected readonly name: string;
 
   constructor(name: string) {
     super();

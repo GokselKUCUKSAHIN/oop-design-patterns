@@ -1,7 +1,7 @@
 import {USPowerSource} from "./us-power-source";
 
 export class UsHomeAppliance {
-  private name: string;
+  private readonly name: string;
   private usPowerSource: USPowerSource;
 
   constructor(name: string) {
