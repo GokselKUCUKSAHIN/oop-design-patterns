@@ -4,10 +4,10 @@ enum Size {
 
 class Enum {
   public static main() {
-    this.printState(Size.EXTRA_LARGE);
+    this.printState(Size.SMALL);
     this.printState(Size.MEDIUM);
     this.printState(Size.LARGE);
-    this.printState(Size.SMALL);
+    this.printState(Size.EXTRA_LARGE);
   }
 
   public static printState(size: Size) {
