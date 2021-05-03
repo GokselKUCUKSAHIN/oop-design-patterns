@@ -7,7 +7,7 @@ export class TwoWayUSTurkishPowerAdapter implements USPowerSource, TurkishPowerS
 
   private on: boolean;
 
-  private powerSource: string;
+  private readonly powerSource: string;
 
   private constructor(powerSource: string) {
     this.powerSource = powerSource;
@@ -51,7 +51,7 @@ export class TwoWayUSTurkishPowerAdapter implements USPowerSource, TurkishPowerS
       }
     } else {
       this.on = false;
-      if (this.powerSource === "tr") {
+      if (this.powerSource === "us") {
         this.usPowerSource.pushSwitch();
       } else {
         this.turkishPowerSource.turnOff();
