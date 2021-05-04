@@ -11,7 +11,7 @@
 
 ## Structural Patterns
 - [x] Flyweight
-- [ ] Adapter
+- [x] Adapter
 - [ ] Composite
 - [ ] Facade
 - [x] Proxy
