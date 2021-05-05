@@ -8,7 +8,7 @@ export class Test {
     const sorted = sorter.sort(myArray);
     console.log("Original:", myArray);
     console.log("Sorted   ", sorted);
-    console.log("Build-in ", myArray.sort((a, b) => a - b));
+    console.log("Build-in ", myArray.sort((a, b) => a - b)); // it's mutates the original array.
     console.log("Original:", myArray);
   }
 }

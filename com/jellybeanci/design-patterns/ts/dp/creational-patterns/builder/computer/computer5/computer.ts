@@ -91,7 +91,7 @@ export class Computer {
     return this._mouse;
   }
 
-  static getBuilder(name: string) {
+  static getBuilder(name: string): LazyComputerBuilderInterface {
     return new Computer.ComputerBuilder(name);
   }
 

@@ -11,7 +11,7 @@ import {CPU} from "../domain/cpu";
 export class ComputerBuilder implements ComputerBuilderInterface {
 
   private static _builder = new ComputerBuilder();
-  private computer: Computer;
+  private readonly computer: Computer;
 
   private constructor() {
     this.computer = new Computer();
